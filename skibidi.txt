@@ -39,8 +39,8 @@ if check_item_in_json(json_data=json_string, item=item_to_find):
   print(True)
 else:
   print(False)}}
-{if:{get:banned}|=|True|then:{mention:{id}} you are banned from NIGGERVideo and all of its tag aliases.|else:
-{if:{argslen}|<|1|then:.t {tagname} {ignore:<ffmpeg|iscript|veb>} <args...>|else:-# Note: NIGGERVideo will NOT have a rework
+{if:{get:banned}|=|True|then:{mention:{id}} you are banned from NIE-GERVideo and all of its tag aliases.|else:
+{if:{argslen}|<|1|then:.t {tagname} {ignore:<ffmpeg|iscript|veb>} <args...>|else:-# Note: NIE-GERVideo will NOT have a rework
 {if:{arg:1}|!=|list|then:{choose:how to eat a hotdog|<@1264800797292756992> I swear|5 4 3|GET OUT!|i love when servers spam|i eat videos|ragatha and jax|OH NO AAKAHAKH IM FUCKING DYING MR SQUIDWARD|vee|squid games!!|IVE PLAYED THESE GAMES BEFORE|Dr. Jr.|/j/j|/n \n}}
 {if:{arg:0}|=|ffmpeg|then:{if:{arg:1}|=|list|then:
 ## THE FFMPEG EFFECTS LIST
