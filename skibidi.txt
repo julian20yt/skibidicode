@@ -1,0 +1,609 @@
+{set:code|}
+{set:offset|0}
+{set:banlist|[]}
+{set:banned|{py:import json
+
+def check_item_in_json(json_data, item):
+  try:
+    # Convert string to dictionary if necessary
+    if isinstance(json_data, str):
+      json_data = json.loads(json_data)
+
+    # Check if the item is a direct key/element
+    if item in json_data:
+      return True
+
+    # Recursively check nested structures
+    if isinstance(json_data, dict):
+      for value in json_data.values():
+        if isinstance(value, (dict, list)):
+          if check_item_in_json(value, item):
+            return True
+    elif isinstance(json_data, list):
+      for value in json_data:
+        if isinstance(value, (dict, list)):
+          if check_item_in_json(value, item):
+            return True
+
+  except (json.JSONDecodeError, TypeError):
+    # Handle invalid JSON or unsupported data types
+    return False
+
+  return False
+
+# Example usage:
+json_string = "{get:banlist}"
+item_to_find = {id} 
+
+if check_item_in_json(json_data=json_string, item=item_to_find):
+  print(True)
+else:
+  print(False)}}
+{if:{get:banned}|=|True|then:{mention:{id}} you are banned from NIGGERVideo and all of its tag aliases.|else:
+{if:{argslen}|<|1|then:.t {tagname} {ignore:<ffmpeg|iscript|veb>} <args...>|else:-# Note: NIGGERVideo will NOT have a rework
+{if:{arg:1}|!=|list|then:{choose:how to eat a hotdog|<@1264800797292756992> I swear|5 4 3|GET OUT!|i love when servers spam|i eat videos|ragatha and jax|OH NO AAKAHAKH IM FUCKING DYING MR SQUIDWARD|vee|squid games!!|IVE PLAYED THESE GAMES BEFORE|Dr. Jr.|/j/j|/n \n}}
+{if:{arg:0}|=|ffmpeg|then:{if:{arg:1}|=|list|then:
+## THE FFMPEG EFFECTS LIST
+- `i killed x`
+more soon...
+-# page 1 out of 1}
+{if:{arg:1}|=|i killed x|then:{set:code|load {iv}
+
+ffmpeg -i $FILE_1 -vf "hue=h=-140, lenscorrection=0.5:0.5:0.3:1" -af "rubberband=pitch=2^(-8/12)" ./output/ikilled.mp4}}
+{if:{arg:1}|!=|list|then:{sh:
+{get:code}}}|else:{if:{arg:0}|=|iscript|then:
+{if:{arg:1}|=|list|then:
+{py:import json
+pagecontent1 = '''- i killed x
+- a major
+- c major
+- embarrassed
+- g major
+- g major 0
+- g major 1
+- g major 2
+- g major 3
+- g major 4
+- g major 5
+- g major 6
+- g major 7
+- g major 8
+- g major 9
+- g major 10
+- g major 11
+- g major 12
+- g major 13
+- g major 14
+- g major 15'''
+pagecontent2 = '''- g major 16
+- g major 17
+- g major 18
+- g major 19
+- g major 20
+- g major 25
+- g major 26
+- g major 50
+- g major 53
+- g major 70
+- g major 74
+- g major 91
+- g major 100
+- old g major 100
+- g major 500
+- g major 591
+- t major
+- custom major 333
+- beatbo major 3
+- sns g major 0'''
+pagecontent3 = '''so'''
+pagecontent4 = '''the'''
+pagecontent5 = '''7'''
+pagecontent6 = '''anyways'''
+pagecontent7 = '''last page...'''
+pages = [
+        {"embed": {'color':0xf0d643, 'title':"ISCRIPT EFFECTS LIST",'description': pagecontent1, 'footer':{'text': "page 1 of 7"} }},
+        {"embed": {'color': 0xf0d643, 'title':"ISCRIPT EFFECTS LIST", 'description': pagecontent2, 'footer':{'text': "page 2 of 7"}}},
+        {"embed": {'color': 0xf0d643, 'title':"ISCRIPT EFFECTS LIST", 'description': pagecontent3, 'footer':{'text': "page 3 of 7"}}},
+        {"embed": {'color': 0xf0d643, 'title':"ISCRIPT EFFECTS LIST", 'description': pagecontent4 }},
+        {"embed": {'color': 0xf0d643, 'description': pagecontent5 }},
+         {"embed": {'color': 0xf0d643, 'description': pagecontent6 }},
+         {"embed": {'color': 0xf0d643, 'description': pagecontent7 }}
+    ]
+ 
+print(json.dumps({"pages": pages}))}}
+{if:{arg:1}|=|custom|then:{set:code|{replace:#|0|{arg:2}}}{set:offset|{math:1+{get:offset}}}}
+{if:{arg:1}|=|i killed x|then:{set:code|hueshifthsv # -135
+audiopitch # 0.63
+explode #}}
+{if:{arg:1}|=|g major|then:{set:code|invert #
+copy # #a
+copy # #b
+copy # #c
+copy # #e
+copy # #f
+audiopitch # 2
+audiopitch #a 1.5
+audiopitch #b 1.26
+audiopitch #c 0.75
+audiopitch #e 0.5
+overlay # #a
+volume #
+overlay # #b
+volume #
+overlay # #c
+volume #
+overlay # #e
+volume #
+overlay # #f
+volume #}}
+{if:{arg:1}|=|g major by ltv mca|then:{set:code|hueshiftrgb # 255 0 255
+invert #
+hueshifthsv # 180
+swirl # -60
+copy # #a
+audiopitch #a 0.79
+overlay # #a
+volume #}}
+{if:{arg:1}|=|g major 0|then:{set:code|hueshifthsvffmpeg # 180 1.5
+huecurvergba # all 0 1 0
+copy # #a
+copy # #b
+audiopitch #a 1.781
+audiopitch #b 0.561
+audioputmix #a #b
+volume #a
+audioputmix # #a
+volume #}}
+{if:{arg:1}|=|a major|then:{set:code|waaw #
+swirl # 130
+invert #
+hueshifthsv # 153
+copy # #a
+audiopitch # 1.392328852631493
+audiopitch #a 1.8340080864093424
+overlay # #a
+volume #}}
+{if:{arg:1}|=|c major|then:{set:code|get # width #w
+get # height #h
+wave # 0.6666666666666666*(#h/18) #w/(3.2/2)
+cover # #w #h
+rotate # 90
+get # width #w
+get # height #h
+wave # 2*(#w/32) #w/(3.2/2)
+cover # #w #h
+rotate # -90
+invert #
+hueshifthsvffmpeg # 80
+audiopitch # 1.155
+audiovibrato # 15 0.1}}
+{if:{arg:1}|=|embarrassed|then:{set:code|get # width w
+get # height h
+invert #
+hueshifthsv # 108
+wave # 35 w/2.5
+cover # w h
+create c1 w/3 h/3 255 0 255
+cropcircle c1
+blur c1 5
+create c2 w/3 h/3 255 0 255
+cropcircle c2
+blur c2 5
+overlay # c1 w/5 h/2.5
+overlay # c2 w/1.7 h/2.5
+copy # #a
+audiopitch #a 2
+overlay # #a
+volume #}}
+{if:{arg:1}|=|asleep|then:{set:code|get # width w 
+get # height h
+invert #
+hueshifthsv # 85
+wave # 10 w/9
+cover # w h
+copy # #a
+audiopitch # 0.840
+audiopitch #a 0.707
+audioputmix # #a
+volume #}}
+{if:{arg:1}|=|g major 1|then:{set:code|hueshifthsv # 180
+invert #
+audiopitch # 1.587}}
+{if:{arg:1}|=|g major 2|then:{set:code|invertrgba # 1 1 0
+copy # #a
+copy # #b
+audiopitch #a 1.26
+audiopitch #b 0.75
+overlay # #a
+volume #
+overlay # #b
+volume #}}
+{if:{arg:1}|=|g major 3|then:{set:code|get # width w
+get # height h
+hueshiftrgb # 0 -255 -255
+rotate # 90
+waves # 15 w/3
+rotate # -90
+cover # w h
+copy # #a
+audiopitch #a 0.707
+overlay # #a
+volume #}}
+{if:{arg:1}|=|g major 4|then:{set:code|huecurvergba # all 0 1 0
+copy # #a
+audiopitch #a 1.335
+overlay # #a
+volume #}}
+{if:{arg:1}|=|g major 5|then:{set:code|invertrgba # 0 1 1
+copy # #a
+audiopitch #a 1.26
+overlay # #a
+volume #}}
+{if:{arg:1}|=|g major 6|=|then:{set:code|huecurvergba # all 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+copy # #a
+audiopitch #a 0.63
+overlay # #a
+volume #}}
+{if:{arg:1}|=|g major 7|then:{set:code|invert #
+copy # #a
+audiopitch #a 1.189
+overlay # #a
+volume #}}
+{if:{arg:1}|=|g major 8|then:{set:code|huecurvergba # all 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+hueshifthsv # 180
+invert #
+copy # #a
+audiopitch #a 0.667
+overlay # #a
+volume #}}
+{if:{arg:1}|=|g major 9|then:{set:code|grayscale #
+huecurvergba # red 0.5 0 0.9
+huecurvergba # green 1 0.2 0.95
+huecurvergba # blue 0 0.4 0.95
+copy # #a
+copy # #b
+copy # #c
+audiopitch # 0.5
+audiopitch #b 1.335
+audiopitch #c 1.5
+overlay # #a
+volume #
+overlay # #b
+volume #
+overlay # #c
+volume #}}
+{if:{arg:1}|=|g major 10|then:{set:code|haah #
+invert #
+swaprgba # bgr
+hueshifthsv # 180
+copy # #a
+copy # #b
+copy # #c
+copy # #e
+copy # #f
+audiopitch # 2
+audiopitch #a 1.5
+audiopitch #b 1.26
+audiopitch #e 0.75
+audiopitch #f 0.5
+overlay # #a
+volume #
+overlay # #b
+volume #
+overlay # #c
+volume #
+overlay # #e
+volume #
+overlay # #f
+volume #
+copy # #g
+audiopitch #g 0.944
+overlay # #g
+volume #}}
+{if:{arg:1}|=|g major 11|then:{set:code|waaw #
+invert #
+gray #
+audiopitch # 2
+audiopitch # 1.12}}
+{if:{arg:1}|=|g major 12|then:{set:code|hueshifthsv # -40 60
+copy # #a
+copy # #b
+copy # #c
+copy # #e
+copy # #f
+audiopitch # 0.5
+audiopitch #a 0.75
+audiopitch #c 1.259
+audiopitch #e 1.498
+audiopitch #f 2
+audioputmix # #a
+volume #
+audioputmix # #b
+volume #
+audioputmix # #c
+volume #
+audioputmix # #e
+volume #
+audioputmix # #f
+volume #
+audiopitch # 1.189
+huecurvergba # all 0 1 0}}
+{if:{arg:1}|=|g major 13|then:{set:code|swaprgba # bgr
+huecurvergba # all 0 1 0 
+hueshifthsv # 0 100
+copy # #a
+copy # #b
+copy # #c
+copy # #e
+audiopitch #a 1.19
+audiopitch #b 1.414
+audiopitch #c 1.68
+audiopitch #e 2
+overlay # #a
+volume #
+overlay # #b
+volume #
+overlay # #c
+volume #
+overlay # #e
+volume #}}
+{if:{arg:1}|=|g major 14|then:{set:code|haah #
+woow #
+gray #
+invert #
+swaprgba # 00r
+copy # #a
+copy # #b
+audiopitch # 2
+audiopitch #a 0.3968
+audiopitch #b 0.7937
+audioputmix # #a
+volume #
+audioputmix # #b
+volume #
+audiopitch # 1.259}}
+{if:{arg:1}|=|g major 15|then:{set:code|get # width w
+get # height h
+wave # 1*(h/18) w/(9/2)
+cover # w h
+copy # #a
+audiopitch #a 1.334
+overlay # #a
+volume #
+audiodestroy #}}
+{if:{arg:1}|=|g major 16|then:{set:code|hueshifthsv # 223.2
+invert #
+flop #
+copy # #a
+audiopitch #a 0.841
+overlay # #a
+volume #}}
+{if:{arg:1}|=|g major 17|then:{set:code|haah #
+explode #
+hueshifthsv # -100
+copy # #a
+audiopitch #a 1.18
+overlay # #a
+volume #}}
+{if:{arg:1}|=|g major 18|then:{set:code|hueshifthsv # 0 100
+copy # #a
+audiopitch # 0.63
+overlay # #a
+volume #}}
+{if:{arg:1}|=|g major 19|then:{set:code|swaprgba # bgr
+hueshifthsv # 180
+haah #
+copy # #a
+audiopitch # 1.122
+audiopitch #a 0.944
+overlay # #a
+volume #}}
+{if:{arg:1}|=|g major 20|then:{set:code|copy # #a 
+hueshifthsv #a -50
+audiopitch #a 0.944
+crop # 0w/2 0h 0 0
+crop #a 0w/2 0h 0w 0
+join # #a
+volume #}}
+{if:{arg:1}|=|g major 23|then:{set:code|hueshifthsv # -120
+flop #
+copy # #a
+copy # #b
+audiopitch #a 0.8409
+audioputmix # #a
+volume #
+audiopitch #b 1.18921
+audioputmix # #b
+volume #}}
+{if:{arg:1}|=|g major 25|then:{set:code|hueshifthsv # -50
+copy # #a
+audiopitch #a 0.667
+overlay # #a
+audiopitch # 0.944
+volume #}}
+{if:{arg:1}|=|g major 26|then:{set:code|huecurvergba # all 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+hueshifthsv # 180
+audiopitch # 2
+audiopitch # 1.26}}
+{if:{arg:1}|=|g major 50|then:{set:code|swaprgba # bgr
+contrast # -1
+copy # #a
+audiopitch # 1.68
+audiopitch #a 1.41
+overlay # #a
+volume #}}
+{if:{arg:1}|=|g major 53|then:{set:code|hueshifthsv # 108
+swirl # -125
+copy # #a
+audiopitch # 1.230433481790624
+audiopitch #a 1.3652514288050228
+overlay # #a
+volume #}}
+{if:{arg:1}|=|g major 70|then:{set:code|get # width #w 
+get # height #h
+rotate # 90 
+waves # 5 #w/7 4
+waves # 10 #w/4 2
+waves # 4 #w/12 7
+rotate # -90
+cover # #w #h
+hueshiftrgb # 0 -255 -255
+copy # #a
+audiopitch #a 0.793
+overlay # #a
+volume #}}
+{if:{arg:1}|=|g major 74|then:{set:code|contrast # -1
+explode #
+copy # #a
+copy # #b
+audiopitch # 0.5
+audiopitch #a 1.4983070768766815
+audiopitch #b 2
+overlay # #a
+volume #
+overlay # #b
+volume #
+audiopitch # 1.122462048309373}}
+{if:{arg:1}|=|g major 91|then:{set:code|swaprgba # bgr
+hueshifthsv # 180
+haah #
+skew # 10
+copy # #a
+audiopitch #a 1.059
+overlay # #a
+volume #
+cover # 0w 0h}}
+{if:{arg:1}|=|g major 100|then:{set:code|haah #
+flop #
+wave # 0w/-30 0w/1.1
+flop #
+cover # 0w 0h
+rotate # 90
+wave # 0w/-30 0w/2.2
+rotate # -90
+cover # 0w 0h
+swaprgba # bgr
+hueshifthsvffmpeg # 85 1
+copy # #a
+audiopitch # 0.944
+audiopitch #a 0.75
+overlay # #a
+volume #}}
+{if:{arg:1}|=|old g major 100|then:{set:code|copy # #a
+hueshifthsv # -50
+audiopitch # 0.944
+hueshifthsv #a 180
+haah #a
+audiopitch #a 0.75
+crop # 0w/2 0h
+crop #a 0w/2 0h 0w
+join # #a
+volume #}}
+{if:{arg:1}|=|g major 400|then:{set:code|get # width w
+get # height h
+swaprgba # rbg
+waves # 5 w/10 10
+waves # 10 w/3 4
+cover # w h
+zoom # 1.5
+copy # #a
+audiopitch # 1.059
+audiopitch #a 0.75
+overlay # #a
+volume #}}
+{if:{arg:1}|=|g major 500|then:{set:code|swaprgba # bgr
+hueshifthsv # 54 200 200
+shake # 50 50 true
+audiopitch # 1.78
+copy # #a
+audiodelay #a 0.01
+copy #a #b
+audiodelay #b 0.01
+copy #b #c
+audiodelay #c 0.02
+audioputmix # #a
+volume #
+audioputmix # #b
+volume #
+audioputmix # #c
+volume #
+audiopitch # 0.667}}
+{if:{arg:1}|=|g major 591|then:{set:code|invert #
+swaprgba # bgr
+hueshifthsv # -145
+swirl # 100
+copy # #a
+audiopitch #a 1.122
+overlay # #a
+volume #}}
+{if:{arg:1}|=|hyper hue|then:{set:code|foreachframe # 0 #fc hueshifthsv #x (idx*5)
+copy # #a
+audiopitch #a 0.25
+audioputmix # #a
+volume #}}
+{if:{arg:1}|=|t major|then:{set:code|invert #
+audiopitch # 1.78
+hueshifthsv # 201.6}}
+{if:{arg:1}|=|custom major 333|then:{set:code|invert #
+rotate # -1 none true
+sharpen # 3
+copy # #a
+audiopitch #a 0.98851
+audioputmix # #a
+volume #}}
+{if:{arg:1}|=|beatbo major 3|then:{set:code|swirl # -16
+waves # 10 100
+invert #
+copy # #a
+audiopitch #a 0.75
+audioputmix # #a
+volume #}}
+{if:{arg:1}|=|sns g major 0|then:{set:code|invertrgba # 1 0 1
+copy # #a
+copy # #b
+audiopitch # 0.5
+audiopitch #a 2
+audiopitch #b 1.5
+audiopitch #a 1.25
+overlay # #a
+volume #
+overlay # #b
+volume #}}
+{if:{arg:1}|!=|list|then:{if:{arg:{math:{get:offset}+2}}|!=|ihtxreverse|then:{if:{arg:{math:{get:offset}+2}}|!=|multiplier|then:{if:{arg:{math:{get:offset}+2}}|!=|ihtx|then:{if:{arg:{math:{get:offset}+2}}|!=|raw|then:{iscript:
+load {iv} 0
+{replace:#|0|{get:code}}
+}|else:{if:{arg:{math:{get:offset}+2}}|=|raw|then:{if:{arg:{math:{get:offset}+3}}|=||then:```{get:code}```{attachtext:{get:code}}|else:```{replace:#|{arg:{math:{get:offset}+3}}|{get:code}}```{attachtext:{replace:#|{arg:{math:{get:offset}+3}}|{get:code}}}}}}|else:{set:powers|{or:{arg:{math:{get:offset}+3}}|10}}{set:#|0}
+{iscript:load {iv} 0
+{if:{arg:{math:{get:offset}+4}}|!=|true|then:snip 0 0 0.5}
+copy 0 1
+{foreach:{get:powers}|{set:#|{math:{get:#}+1}}
+{replace:#|{get:#}|{get:code}}
+copy {get:#} {math:{get:#}+1}
+}
+{set:#|0}
+concatmultiple{foreach:{get:powers}|{set:#|{math:{get:#}+1}} {get:#}}
+render 1}}|else:{set:powers|{or:{arg:{math:{get:offset}+3}}|2}}{iscript:load {iv} 0
+{foreach:{get:powers}|
+{replace:#|0|{get:code}}}}}|else:{set:powers|{or:{arg:{math:{get:offset}+3}}|10}}{set:#|0}
+{iscript:load {iv} 0
+{if:{arg:{math:{get:offset}+4}}|!=|true|then:snip 0 0 0.5}
+copy 0 1
+{foreach:{get:powers}|{set:#|{math:{get:#}+1}}
+{replace:#|{get:#}|{get:code}}
+copy {get:#} {math:{get:#}+1}
+}
+{set:#|{get:powers}}
+concatmultiple{foreach:{get:powers}| {get:#}{set:#|{math:{get:#}-1}}}
+render {get:powers}}}
+}|else:{if:{arg:0}|=|veb|then:{if:{arg:1}|=|list|then:
+## THE VEB EFFECTS LIST
+- `i killed x`
+more will never happen...
+-# page 1 out of 1}
+{if:{arg:1}|=|i killed x|then:{set:code|load {iv}
+
+ffmpeg -loglevel error -i $FILE_1 -v 16 -vf "v360=input=e:output=ball,scale=640:360,setsar=1:1, hue=h=-140" -af "rubberband=pitch=2^(-8/12)" ./output/ikilled.mp4}}
+{if:{arg:1}|!=|list|then:{sh:
+{get:code}}}|else:{if:{arg:0}|=|support|then:discord.gg/KmauG4Z
+}}}}}
+}
